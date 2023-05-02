@@ -1,0 +1,459 @@
+@import url('https://fonts.googleapis.com/css2?family=Lexend:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { height: 1500px; font-family: 'Lexend', sans-serif; }
+
+/* <=== NAVBAR ===> */
+
+nav {
+  width: fit-content;
+  height: fit-content;
+  margin: 15px 100px;
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-end;
+
+  position: fixed;
+  right: 0;
+  transition: all 350ms ease;
+  z-index: 9999;
+}
+nav button {
+  position: relative;
+  width: fit-content;
+  margin: 15px 15px;
+
+  border: none;
+  background-color: transparent;
+
+  font-size: 27px;
+  font-family: "Lexend", sans-serif;
+  font-weight: 200;
+
+  cursor: pointer;
+}
+nav button::after {
+  content: "";
+  background-color: black;
+  width: 80%;
+  height: 3px;
+
+  position: absolute;
+  bottom: -10px; left: 50%;
+
+  transform-origin: center;
+  transform: translateX(-50%) scaleX(0);
+  transition: transform 150ms ease;
+}
+nav button:hover::after {
+  transform: translateX(-50%) scaleX(1);
+  transition: transform 150ms ease;
+}
+nav button a { color: inherit; text-decoration: none;}
+/* CSS When once user has scrolled down */
+.scrollingActive {
+  background-color: rgba(0, 0, 0, 0.75);
+  transition: background-color 350ms ease;
+  margin: 15px 30px;
+  transition: all 350ms ease;
+}
+
+.scrollingActive button {
+  color:  white;
+  transition: all 350ms ease;
+  font-weight: 200;
+}
+
+.scrollingActive button::after {
+  background-color: white;
+}
+
+/* <=== HEADER ===> */
+
+header {
+  /* border: solid red 1px; */
+  height: fit-content;
+  padding-top: 175px;
+
+  position: relative;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+header #title {
+  position: relative;
+
+  display: grid;
+  grid-template-columns: 1fr 10px fit-content;
+  grid-template-rows: 1fr 1fr;
+
+  width: fit-content;
+  height: 200px;
+  transform: translateX(90px);
+}
+header #title h1 {
+  grid-column: 1;
+  grid-row: 1;
+  margin-right: 50px;
+
+  font-size: 105px;
+  font-weight: 400;
+
+  position: relative;
+  white-space: nowrap;
+}
+header #title h1::after {
+  content: "Hi, I'm . . .";
+
+  font-size: 75px;
+  font-weight: 200;
+
+  position: absolute;
+  top: 0; left: 0;
+  transform: translate(-50px, -100px);
+}
+header #title img {
+  grid-column: 2;
+  grid-row: span 2;
+
+  position: absolute;
+  top: 0; left: 0;
+  transform: translateX(calc(-100% + 13px));
+
+  align-self: center;
+}
+header #title p {
+  width: fit-content;
+  margin-left: 50px;
+
+  grid-column: 3;
+  grid-row: span 2;
+
+  font-size: 40px;
+  font-weight: 100;
+
+  align-self: center;
+}
+header #title .social_buttons {
+  justify-self: flex-start;
+  align-self: center;
+
+  display: flex;
+  flex-direction: row;
+}
+header #title .social_buttons button {
+  width: 50px;
+  height: 50px;
+  padding: 15px 25px;
+  margin: 0 calc(15px / 2);
+
+  font-family: "Lexend", sans-serif;
+  font-size: 20px;
+  font-weight: 200;
+
+  background-color: transparent;
+  border: solid black 2px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  cursor: pointer;
+  transition: all 250ms ease-in;
+}
+header #title .social_buttons button:hover {
+  background-color: black;
+  color: white;
+  transition: all 250ms ease-in;
+}
+header #title .social_buttons #social_btn_contact_me {
+  width: fit-content;
+}
+
+header #title_selfie {
+  z-index: -5;
+  position: absolute;
+  right: 65%; bottom: -350px;
+
+  width: 700px;
+  aspect-ratio: 1;
+
+  white-space: nowrap;
+}
+
+/* <=== ABOUT ME ===> */
+#about_me {
+  width: 100%;
+  height: 500px;
+  background-color: #FAFAFA;
+
+  margin-top: 190px;
+  padding: 55px 0;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  background-image: url(./assets/about_me_bg_texture.png);
+}
+#about_me .bg_transition {
+  position: absolute;
+  right: 0; top: 0;
+  transform: translateY(-170px);
+  z-index: -9999;
+}
+@media only screen and (max-width: 1550px) {
+  #about_me .bg_transition { display: none; }
+}
+#about_me h1 {
+  font-size: 85px;
+  font-weight: 400;
+  margin-bottom: 10px;
+}
+#about_me p {
+  /* border: solid blue 1px; */
+  padding: 10px 15px;
+  position: relative;
+  max-width: 50%;
+
+  font-size: 1.3vw;
+  font-weight: 200;
+  line-height: 42px;
+
+  background-color: rgba(0, 0, 0, 0.70);
+  color: white;
+}
+#about_me p::after {
+  content: "";
+  height: 90%;
+  width: 3px;
+
+  background-color: rgba(50, 50, 50 );
+
+  position: absolute;
+  left: -20px; top: 50%;
+  transform: translateY(-50%);
+}
+#about_me img {
+  position: absolute;
+  bottom: -23%;
+}
+
+/* <=== Projects ===> */
+#projects {
+  /* border: solid red 1px; */
+  width: 100%;
+  height: fit-content;
+  padding-top: 100px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+#projects .title {
+  text-align: center;
+  width: 80%;
+  font-size: 85px;
+  font-weight: 400;
+  margin-bottom: 10px;
+  border-bottom: solid black 3px;
+  padding-bottom: 25px;
+  margin-bottom: 50px;
+}
+
+#projects #projects_container {
+  height: fit-content;
+  width: 80%;
+
+  margin: 0 auto;
+
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+#projects #projects_container .project_card.active .slide_buttons,
+#projects #projects_container .project_card .slide_buttons {
+  height: 100%;
+  width: 5vw;
+
+  position: absolute;
+  top: 0; right: 0;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+#projects #projects_container .project_card.active .slide_buttons button,
+#projects #projects_container .project_card .slide_buttons button {
+  width: 100%;
+  height: 50%;
+
+  border: solid gray 1px;
+
+  text-align: center;
+  font-family: "Lexend", sans-serif;
+  font-weight: 300;
+  font-size: 1.5vw;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: filter 350ms ease;
+}
+
+
+#projects #projects_container .project_card .slide_buttons button { opacity: 0; }
+#projects #projects_container .project_card.active .slide_buttons button { opacity: 1; }
+#projects #projects_container .project_card.active .slide_buttons button:hover {
+  filter: brightness(0.9);
+  transition: filter 350ms ease;
+}
+
+#projects #projects_container .project_card {
+  position: absolute;
+
+  height: fit-content;
+  width: fit-content;
+  height: 500px;
+
+  justify-self: center;
+  align-self: center;
+
+  display: flex;
+  align-self: center;
+  justify-content: flex-start;
+
+  transform: translateX(-100vw);
+  opacity: 0;
+  transition: transform 1s 350ms ease, opacity 1s ease;
+}
+#projects #projects_container .project_card.active {
+  width: 100%;
+  position: relative;
+  transform: translateX(0);
+  opacity: 1;
+  transition: transform 1s 350ms ease, opacity 1s ease;
+}
+
+#projects #projects_container .project_card.active .project_image {
+  width: 25vw;
+  height: 25vw;
+  align-self: center;
+
+  background-position: center;
+  background-size: cover;
+}
+
+#projects #projects_container .project_card .hover_description {
+  width: 25vw;
+  height: 100%;
+
+  background-color: rgba(0, 0, 0, 0.75);
+
+  position: absolute;
+  top: 0; left: 0;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  z-index: 1000;
+  opacity: 0;
+}
+
+#projects #projects_container .project_card .description {
+  padding: 0 25px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+
+#projects #projects_container .project_card .description h1 {
+  font-size: 3vw;
+  padding-bottom: 8px;
+  border-bottom: solid black 3px;;
+}
+#projects #projects_container .project_card .description p {
+  max-width: 30vw;
+  padding: 10px 0;
+  font-size: 1.25vw;
+  font-weight: 200;
+}
+#projects #projects_container .project_card .description .project_links {
+  margin: 25px 0;
+}
+#projects #projects_container .project_card .description .project_links button {
+  border: solid black 2px;
+  background-color: white;
+  padding: 15px 25px;
+  font-family: "Lexend", sans-serif;
+  font-size: 0.75vw;
+  cursor: pointer;
+  transition: filter 350ms ease;
+}
+#projects #projects_container .project_card .description .project_links button:hover {
+  filter: brightness(0.9);
+  transition: filter 350ms ease;
+}
+
+
+@media only screen and (max-width: 1225px) {
+  #projects #projects_container .project_card {
+    width: 40vw;
+    height: 40vw;
+  }
+}
+
+@media only screen and (max-width: 1350px) {
+  header { justify-content: flex-start; }
+  header #title {
+    height: fit-content;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr fit-content;
+  }
+  header #title h1 {
+    margin: 0;
+    grid-column: 1;
+    grid-row: 1;
+    align-self: flex-end;
+    transform: translateY(15px);
+  }
+  header #title h1::after {
+    transform: translate(-50px, -100px);
+  }
+  header #title p {
+    margin: 15px 0 0 0;
+    grid-column: 1;
+    grid-row: 2;
+    align-self: flex-start;
+  }
+  header #title img { display: none; }
+  header #title .social_buttons button { margin-top: 25px; }
+  header #title .social_buttons button:nth-of-type(1) { margin-left: 0; }
+
+  header #title_selfie {
+    right: -100px;
+    bottom: -200px;
+  }
+
+  #about_me img { display: none; }
+
+  #projects { padding: 50px 0; }
+}
+@media only screen and (max-width: 1600px) {
+  #projects #projects_container {
+    grid-template-columns: repeat(2, max-content);
+  }
+}
